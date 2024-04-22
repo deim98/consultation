@@ -1,0 +1,11 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+app.include_router(router=patient_router, prefix="/patients", tags=["patients"])
+app.include_router(router=doctor_router, prefix="/doctors", tags=["doctors"])
+app.include_router(router= appointment_router, prefix="/appointments", tags=["appointments"])
+
+@app.get('/')
+def index():
+    return "welcome to health is wealth"
